@@ -7,13 +7,13 @@ import taco from "./icons/taco.png";
 import burgerCombo from "./icons/fast-food.png";
 
 const products = [
-  { name: "Burger", price: 200, img: hamburger },
-  { name: "Donut", price: 400, img: donut },
-  { name: "French fries", price: 250, img: frenchfries },
-  { name: "Fried chicken", price: 800, img: friedchicken },
-  { name: "Ramen", price: 325, img: ramen },
-  { name: "Taco", price: 475, img: taco },
-  { name: "Burger Combo", price: 775, img: burgerCombo },
+  { name: "Burger", _id: "1", price: 200, img: hamburger },
+  { name: "Donut", _id: "2", price: 400, img: donut },
+  { name: "French fries", _id: "3", price: 250, img: frenchfries },
+  { name: "Fried chicken", _id: "4", price: 800, img: friedchicken },
+  { name: "Ramen", _id: "5", price: 325, img: ramen },
+  { name: "Taco", _id: "6", price: 475, img: taco },
+  { name: "Burger Combo", _id: "7", price: 775, img: burgerCombo },
 ];
 
 export default products;
