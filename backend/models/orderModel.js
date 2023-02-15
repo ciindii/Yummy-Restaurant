@@ -45,7 +45,7 @@ const orderSchema = mongoose.Schema(
     },
     paymentMethod: {
       type: String,
-      required: True,
+      required: true,
     },
     paymentResult: {
       //sucessful payment from paypal
