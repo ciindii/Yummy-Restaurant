@@ -5,6 +5,7 @@ import Product from "../models/productModel.js";
 //everytime you uses a mongoose method it returns a promise
 //instead of doing a try catch for every route => express-async-handler
 
+//create a new router object in your program to handle requests
 const router = express.Router();
 
 //so .png icon would load from public folder
