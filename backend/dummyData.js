@@ -32,10 +32,12 @@ const importData = async () => {
     await Product.deleteMany();
     await User.deleteMany();
 
-    //
+    //array of created users
     const createdUsers = await User.insertMany(users);
+    //grabs admin user
     const admin = createdUsers[0]._id;
 
+    //add admin user for each product
     const sampleProducts = products.map((product) => {
       return { ...product, user: admin };
     });

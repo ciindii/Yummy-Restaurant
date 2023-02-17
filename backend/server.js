@@ -3,14 +3,12 @@ import dotenv from "dotenv";
 import connectDB from "./config/db.js";
 
 import productRoutes from "./routes/productRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
 
 //get access from our .env file
 dotenv.config();
 connectDB();
 const app = express();
-
-//will automaticlly go to productRoutes
-app.use("/api/products", productRoutes);
 
 //error middleware, overwrite default error handler
 app.use((err, req, res, next) => {
@@ -23,8 +21,15 @@ app.use((err, req, res, next) => {
   });
 });
 
+//allow us to accept JSON data in the body
+app.use(express.json());
+
 //so .png icon would load from public folder
 app.use(express.static("public"));
+
+//will automaticlly go to productRoutes
+app.use("/api/products", productRoutes);
+app.use("/api/users", userRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(

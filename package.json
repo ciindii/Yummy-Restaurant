@@ -23,6 +23,8 @@
   "homepage": "https://github.com/ciindii/Yummy-Restaurant#readme",
   "type": "module",
   "dependencies": {
+    "@redux-devtools/extension": "^3.2.5",
+    "@reduxjs/toolkit": "^1.9.2",
     "axios": "^1.3.3",
     "bcryptjs": "^2.4.3",
     "concurrently": "^7.6.0",
