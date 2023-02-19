@@ -6,8 +6,16 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { RiStarSmileLine } from "react-icons/ri";
 import { HiOutlineShoppingCart, HiOutlineUser } from "react-icons/hi";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../actions/userAction";
 
 const Header = () => {
+  const dispatch = useDispatch();
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
+  const signOut = () => {
+    dispatch(logout());
+  };
   return (
     <header>
       {/* fixed="top" */}
@@ -28,9 +36,21 @@ const Header = () => {
               <Nav.Link href="/cart">
                 <HiOutlineShoppingCart /> Cart
               </Nav.Link>
-              <Nav.Link href="/login">
-                <HiOutlineUser /> Sign In
-              </Nav.Link>
+              {userInfo ? (
+                <NavDropdown title={userInfo.name} id="username">
+                  <LinkContainer to="/account">
+                    <NavDropdown.Item>Account</NavDropdown.Item>
+                  </LinkContainer>
+                  <NavDropdown.Item onClick={signOut}>
+                    Sign Out
+                  </NavDropdown.Item>
+                </NavDropdown>
+              ) : (
+                <Nav.Link href="/login">
+                  <HiOutlineUser /> Sign In
+                </Nav.Link>
+              )}
+
               {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.2">
