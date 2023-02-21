@@ -2,6 +2,7 @@ import asyncHandler from "express-async-handler";
 import express from "express";
 import Order from "../models/orderModel.js";
 import User from "../models/userModel.js";
+import Product from "../models/productModel.js";
 import jwt from "jsonwebtoken";
 const router = express.Router();
 
@@ -59,6 +60,7 @@ router.route("/").post(
         deliveryFee,
         total,
       });
+
       const createdOrder = await order.save();
       res.status(201).json(createdOrder);
     }

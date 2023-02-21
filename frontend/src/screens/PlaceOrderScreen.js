@@ -14,7 +14,9 @@ import CheckoutSteps from "../components/CheckoutSteps";
 import Message from "../components/Message";
 import { createOrder } from "../actions/orderActions";
 import { BsCreditCard2Back } from "react-icons/bs";
-import { IoFastFoodOutline } from "react-icons/io";
+import { GiPaperBagOpen } from "react-icons/gi";
+import { CiDeliveryTruck } from "react-icons/ci";
+import { HiOutlineTicket } from "react-icons/hi";
 
 const PlaceOrder = () => {
   const navigate = useNavigate();
@@ -77,7 +79,7 @@ const PlaceOrder = () => {
           <ListGroup variant="flush">
             <ListGroup.Item>
               <h2>
-                <BsCreditCard2Back /> Deliver to
+                <CiDeliveryTruck /> Deliver to
               </h2>
               <p>
                 <strong>Address</strong>
@@ -94,7 +96,9 @@ const PlaceOrder = () => {
               <p>{cart.paymentMethod}</p>
             </ListGroup.Item>
             <ListGroup.Item>
-              <h2>Orders</h2>
+              <h2>
+                <GiPaperBagOpen /> Orders
+              </h2>
               {cart.cartItems.length === 0 ? (
                 <Message>You have nothing in your cart.</Message>
               ) : (
@@ -158,7 +162,9 @@ const PlaceOrder = () => {
                   <Form onSubmit={submitCoupon}>
                     <Form.Group controlId="coupon">
                       <Col>
-                        <Form.Label className="pt-3">Coupon</Form.Label>
+                        <Form.Label className="pt-3">
+                          <HiOutlineTicket /> Coupon
+                        </Form.Label>
                         <Form.Control
                           placeholder="coupon code?"
                           onChange={(e) => setCoupon(e.target.value)}

@@ -18,8 +18,8 @@ const RegisterScreen = () => {
 
   const dispatch = useDispatch();
 
-  const userRegister = useSelector((state) => state.userRegister);
-  const { loading, error, userInfo } = userRegister;
+  const userLogin = useSelector((state) => state.userLogin);
+  const { loading, error, userInfo } = userLogin;
 
   //location.search will have url query string
   const redirect = location.search ? location.search.split("=")[1] : "/";
@@ -41,6 +41,7 @@ const RegisterScreen = () => {
     } else {
       dispatch(register(name, email, password));
     }
+    navigate("/cart");
   };
 
   return (
@@ -95,7 +96,7 @@ const RegisterScreen = () => {
             </Form.Group>
 
             <Button className="mt-3" type="submit" variant="primary">
-              Sign Up
+              Sign In
             </Button>
           </Form>
 
