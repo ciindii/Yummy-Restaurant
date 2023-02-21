@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import {
   Link,
@@ -18,6 +19,12 @@ import {
 } from "react-bootstrap";
 import { addToCart, removeFromCart } from "../actions/cartActions";
 import { BsArrowRightShort } from "react-icons/bs";
+
+const Styles = styled.div`
+  .secondary-font {
+    color: #6a6b6a;
+  }
+`;
 
 const CartScreen = () => {
   const dispatch = useDispatch();
@@ -41,13 +48,13 @@ const CartScreen = () => {
   //   }
   // }, [dispatch, params.id, qty]);
   return (
-    <div>
+    <Styles>
       <Row>
         <Col md={8}>
           <h1>Cart</h1>
           {cartItems.length === 0 ? (
             <Message>
-              Your cart is currently empty.
+              Your cart is currently empty.{" "}
               <Link to="/menu">Take a look at the Menu</Link>
             </Message>
           ) : (
@@ -108,7 +115,7 @@ const CartScreen = () => {
                     (accumulator, item) => accumulator + Number(item.qty),
                     0
                   )}{" "}
-                  item(s) in your cart.
+                  <span className="secondary-font">item(s) in your cart.</span>
                 </p>
                 $
                 {cartItems
@@ -117,7 +124,7 @@ const CartScreen = () => {
                     0
                   )
                   .toFixed(2)}{" "}
-                (+ tax)
+                <span className="secondary-font">(+ tax)</span>
               </ListGroup.Item>
               <ListGroup.Item className="pt-4">
                 <Button
@@ -133,7 +140,7 @@ const CartScreen = () => {
           </Card>
         </Col>
       </Row>
-    </div>
+    </Styles>
   );
 };
 

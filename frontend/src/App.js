@@ -16,6 +16,7 @@ import OrderConfirmationScreen from "./screens/OrderConfirmationScreen";
 import DessertScreen from "./screens/DessertScreen";
 import SideScreen from "./screens/SideScreen";
 import EntreeScreen from "./screens/EntreeScreen";
+import AboutScreen from "./screens/AboutScreen";
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<HomeScreen />} />
             <Route path="/menu" element={<MenuScreen />} />
+            <Route path="/about" element={<AboutScreen />} />
             <Route path="/desserts" element={<DessertScreen />} />
             <Route path="/entrees" element={<EntreeScreen />} />
             <Route path="/sides" element={<SideScreen />} />

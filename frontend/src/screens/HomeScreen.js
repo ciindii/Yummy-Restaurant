@@ -6,6 +6,7 @@ const HomeScreen = () => {
   return (
     <div className="ml-auto">
       <AdsJumbotron />
+      <div className="mt-5"></div>
       <MenuScreen />
     </div>
   );

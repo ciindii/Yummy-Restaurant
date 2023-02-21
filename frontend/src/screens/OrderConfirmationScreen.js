@@ -18,31 +18,12 @@ const Styles = styled.div`
     width: 60%;
     margin: 20px auto;
   }
-  img{
+  img {
     width: 100px;
   }
   h6 {
     color: #666666;
     padding: 15px;
-  }
-  h4 {
-
-  }
-    @media only screen and (max-width: 768px) {
-      .form-inline {
-        padding: 20px 0;
-      }
-      .ml-sm-5, .mx-sm-5 {
-        margin-left: 0!important;
-      }
-      .navbar {
-        padding: 0rem 1rem!important;
-      }
-    }
-    @media (min-width: 576px)
-      // .ml-sm-5, .mx-sm-5 {
-      //   margin-left: 0!important;
-      // }
   }
 `;
 

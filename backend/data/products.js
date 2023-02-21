@@ -48,6 +48,70 @@ const products = [
     description: "a burger combo meal, comes with fries and a drink",
     category: "entree",
   },
+  {
+    name: "Soy Sauce",
+    price: 0.75,
+    img: "/icons/sauce-1.png",
+    description: "a packet of our finest soy sauce",
+    category: "side",
+  },
+  {
+    name: "Ice Cream",
+    price: 2.75,
+    img: "/icons/ice-cream-19.png",
+    description: "Sea salt flavored ice pops. Made with organic sea salts.",
+    category: "dessert",
+  },
+  {
+    name: "Soda",
+    price: 1.75,
+    img: "/icons/soda-1.png",
+    description: "A can of soda.",
+    category: "side",
+  },
+  {
+    name: "Muffin",
+    price: 1.75,
+    img: "/icons/muffin-muffin.png",
+    description: "Our in house freshly baked chocolate muffin.",
+    category: "dessert",
+  },
+  {
+    name: "Cake",
+    price: 7.75,
+    img: "/icons/cake-26.png",
+    description: "Best selling choclate cake with icing",
+    category: "dessert",
+  },
+  {
+    name: "Cookie",
+    price: 3.0,
+    img: "/icons/cookie-13.png",
+    description: "Fresh cookies baked daily.",
+    category: "dessert",
+  },
+  {
+    name: "Pancakes",
+    price: 4.5,
+    img: "/icons/pancake.png",
+    description:
+      "A warm stack of our freshly made pancakes with chocolate filling.",
+    category: "dessert",
+  },
+  {
+    name: "Steamed rice",
+    price: 1.0,
+    img: "/icons/rice-food.png",
+    description: "One cup of steamed white rice",
+    category: "side",
+  },
+  {
+    name: "Coffee",
+    price: 1.5,
+    img: "/icons/coffee-36.png",
+    description: "Freshly brewed cup of black coffee.",
+    category: "side",
+  },
 ];
 
 export default products;
