@@ -17,6 +17,7 @@ import {
   Button,
 } from "react-bootstrap";
 import { addToCart, removeFromCart } from "../actions/cartActions";
+import { BsArrowRightShort } from "react-icons/bs";
 
 const CartScreen = () => {
   const dispatch = useDispatch();
@@ -30,8 +31,7 @@ const CartScreen = () => {
   };
 
   const checkoutHandler = () => {
-    navigate("/login?redirect=shipping");
-    //navigate("/shipping");
+    navigate("/login?redirect=delivery");
   };
 
   //only add to cart if theres an id
@@ -58,7 +58,7 @@ const CartScreen = () => {
                 </Col>
               </Row>
               {cartItems.map((item) => (
-                <ListGroup.Item key={item.product}>
+                <ListGroup.Item className="p-4" key={item.product}>
                   <Row>
                     <Col md={2}>
                       <Image src={item.img} alt={item.name} fluid />
@@ -100,7 +100,7 @@ const CartScreen = () => {
           )}
         </Col>
         <Col md={4}>
-          <Card>
+          <Card className="pt-5">
             <ListGroup variant="flush">
               <ListGroup.Item>
                 <p>
@@ -119,14 +119,14 @@ const CartScreen = () => {
                   .toFixed(2)}{" "}
                 (+ tax)
               </ListGroup.Item>
-              <ListGroup.Item>
+              <ListGroup.Item className="pt-4">
                 <Button
                   type="button"
                   className="btn-block"
                   disabled={cartItems.length === 0}
                   onClick={checkoutHandler}
                 >
-                  Proceed to checkout
+                  Proceed to checkout <BsArrowRightShort />
                 </Button>
               </ListGroup.Item>
             </ListGroup>

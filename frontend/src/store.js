@@ -6,6 +6,7 @@ import {
 } from "./reducers/productReducers";
 import { cartReducer } from "./reducers/cartReducers";
 import { userLoginReducer, userRegisterReducer } from "./reducers/userReducers";
+import { orderCreateReducer } from "./reducers/orderReducers";
 
 //save in localStorage to load in inital state
 const userInfoFromStorage = localStorage.getItem("userInfo")
@@ -17,14 +18,14 @@ const cartItemsFromStorage = localStorage.getItem("cartItems")
   : //if not found return empty array
     [];
 
-const shippingAddressFromStorage = localStorage.getItem("shippingAddress")
-  ? JSON.parse(localStorage.getItem("shippingAddress"))
+const deliveryAddressFromStorage = localStorage.getItem("deliveryAddress")
+  ? JSON.parse(localStorage.getItem("deliveryAddress"))
   : {};
 
 const initialState = {
   cart: {
     cartItems: cartItemsFromStorage,
-    shippingAddress: shippingAddressFromStorage,
+    deliveryAddress: deliveryAddressFromStorage,
   },
   userLogin: {
     userInfo: userInfoFromStorage,
@@ -40,6 +41,7 @@ const store = configureStore({
     cart: cartReducer,
     userLogin: userLoginReducer,
     userRegister: userRegisterReducer,
+    orderCreate: orderCreateReducer,
   },
   middleware: [thunk],
   preloadedState: initialState,

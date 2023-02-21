@@ -4,6 +4,7 @@ import connectDB from "./config/db.js";
 
 import productRoutes from "./routes/productRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
+import orderRoutes from "./routes/orderRoutes.js";
 
 //get access from our .env file
 dotenv.config();
@@ -30,6 +31,7 @@ app.use(express.static("public"));
 //will automaticlly go to productRoutes
 app.use("/api/products", productRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api/orders", orderRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(

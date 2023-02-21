@@ -3,32 +3,33 @@ import { Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import FormContainer from "../components/FormContainer";
-import { saveShippingAddress } from "../actions/cartActions";
+import { saveDeliveryAddress } from "../actions/cartActions";
 import CheckoutSteps from "../components/CheckoutSteps";
+import { BsArrowRightShort } from "react-icons/bs";
 
-const ShippingScreen = () => {
+const DeliveryScreen = () => {
   const cart = useSelector((state) => state.cart);
-  const { shippingAddress } = cart;
+  const { deliveryAddress } = cart;
 
-  const [address, setAddress] = useState(shippingAddress.address);
-  const [city, setCity] = useState(shippingAddress.city);
-  const [postalCode, setPostalCode] = useState(shippingAddress.postalCode);
+  const [address, setAddress] = useState(deliveryAddress.address);
+  const [city, setCity] = useState(deliveryAddress.city);
+  const [postalCode, setPostalCode] = useState(deliveryAddress.postalCode);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(saveShippingAddress({ address, city, postalCode }));
+    dispatch(saveDeliveryAddress({ address, city, postalCode }));
     navigate("/payment");
   };
   return (
     <FormContainer>
       <CheckoutSteps step1 step2 />
-      <h1>Shipping</h1>
+      <h1>Delivery Address</h1>
       <Form onSubmit={submitHandler}>
         <Form.Group controlId="address">
-          <Form.Label>Address</Form.Label>
+          <Form.Label className="pt-3">Address</Form.Label>
           <Form.Control
             type="text"
             placeholder="Enter address"
@@ -38,7 +39,7 @@ const ShippingScreen = () => {
           ></Form.Control>
         </Form.Group>
         <Form.Group controlId="city">
-          <Form.Label>City</Form.Label>
+          <Form.Label className="pt-3">City</Form.Label>
           <Form.Control
             type="text"
             placeholder="Enter city"
@@ -48,7 +49,7 @@ const ShippingScreen = () => {
           ></Form.Control>
         </Form.Group>
         <Form.Group controlId="postalCode">
-          <Form.Label>Postal Code</Form.Label>
+          <Form.Label className="pt-3">Postal Code</Form.Label>
           <Form.Control
             type="text"
             placeholder="Enter postal code"
@@ -57,12 +58,12 @@ const ShippingScreen = () => {
             onChange={(e) => setPostalCode(e.target.value)}
           ></Form.Control>
         </Form.Group>
-        <Button type="submit" variant="primary">
-          Continue
+        <Button className="mt-3" type="submit" variant="primary">
+          Continue <BsArrowRightShort />
         </Button>
       </Form>
     </FormContainer>
   );
 };
 
-export default ShippingScreen;
+export default DeliveryScreen;
